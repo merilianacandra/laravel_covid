@@ -41,7 +41,6 @@ class IndexController extends Controller
         $kabupaten = Kabupaten::all();
         $labels = Kabupaten::select('kabupaten')->get();
         
-        return $tanggalSekarang;
         return view('index',compact('kabupaten','data','sembuh','positif','rawat','meninggal','tanggalSekarang'));
     }
 
