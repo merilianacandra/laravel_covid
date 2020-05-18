@@ -11,17 +11,16 @@ use Illuminate\Http\Request;
 
 class IndexController extends Controller
 {
-    private $dateTimeNow;
-    private $dateNow;
-    private $dateFormatName;
-    private $dateFormatName1;
+    // private $dateTimeNow;
+    // private $dateNow;
+    // private $dateFormatName;
 
-    public function __construct()
-    {
-        $this->dateTimeNow = Carbon::now()->addHours(8);
-        $this->dateNow = Carbon::now()->format('Y-m-d');
-        $this->dateFormatName = Carbon::now()->locale('id')->isoFormat('LL');
-    }   
+    // public function __construct()
+    // {
+    //     $this->dateTimeNow = Carbon::now()->addHours(8);
+    //     $this->dateNow = Carbon::now()->format('Y-m-d');
+    //     $this->dateFormatName = Carbon::now()->locale('id')->isoFormat('LL');
+    // }   
     /**
      * Display a listing of the resource.
      *
@@ -29,20 +28,20 @@ class IndexController extends Controller
      */
     public function index()
     {
-   
+        $tanggalSekarang = CARBON::now()->locale('id')->isoFormat('LL');
+        $dateNow = Carbon::now()->format('Y-m-d');
         $data = Data::select('tb_data.id','id_kabupaten','kabupaten','sembuh','rawat','positif','meninggal')
                 ->join('tb_kabupaten','tb_data.id_kabupaten','=','tb_kabupaten.id')
-                ->where('tgl_data', $this->dateNow)->orderBy('positif','desc')
+                ->where('tgl_data', $dateNow)->orderBy('positif','desc')
                 ->get();
-                $meninggal = Data::select(DB::raw('COALESCE(SUM(meninggal),0) as meninggal'))->where('tgl_data',$this->dateNow)->get();
-                $positif = Data::select(DB::raw('COALESCE(SUM(positif),0) as positif'))->where('tgl_data',$this->dateNow)->get();
-                $rawat = Data::select(DB::raw('COALESCE(SUM(rawat),0) as rawat'))->where('tgl_data',$this->dateNow)->get();
-                $sembuh = Data::select(DB::raw('COALESCE(SUM(sembuh),0) as sembuh'))->where('tgl_data',$this->dateNow)->get();
+                $meninggal = Data::select(DB::raw('COALESCE(SUM(meninggal),0) as meninggal'))->where('tgl_data',$dateNow)->get();
+                $positif = Data::select(DB::raw('COALESCE(SUM(positif),0) as positif'))->where('tgl_data',$dateNow)->get();
+                $rawat = Data::select(DB::raw('COALESCE(SUM(rawat),0) as rawat'))->where('tgl_data',$dateNow)->get();
+                $sembuh = Data::select(DB::raw('COALESCE(SUM(sembuh),0) as sembuh'))->where('tgl_data',$dateNow)->get();
         $kabupaten = Kabupaten::all();
         $labels = Kabupaten::select('kabupaten')->get();
-        $tanggalSekarang   = \Carbon\Carbon::now()->format('d F Y');
         
-        
+        return $tanggalSekarang;
         return view('index',compact('kabupaten','data','sembuh','positif','rawat','meninggal','tanggalSekarang'));
     }
 
@@ -51,7 +50,6 @@ class IndexController extends Controller
         
         $tanggal = $request->tanggal;
         $tanggalSekarang = Carbon::parse($request->tanggal)->format('d F Y');
-        $date = \Carbon\Carbon::parse($request->tanggal)->format('d F Y');
         $cekData = Data::select('kabupaten','id_kabupaten','meninggal','positif','rawat','sembuh','tgl_data')
             ->rightjoin('tb_kabupaten','tb_data.id_kabupaten','=','tb_kabupaten.id')
             ->where('tgl_data',$request->tanggal)
@@ -73,8 +71,9 @@ class IndexController extends Controller
 
     public function getData(Request $request)
     {
+        $dateNow = Carbon::now()->format('Y-m-d');
         if (is_null($request->date)) {
-            $tanggal = $this->dateNow;
+            $tanggal = $dateNow;
         }else{
             $tanggal = $request->date;
         }
@@ -89,8 +88,9 @@ class IndexController extends Controller
 
     public function getPositif(Request $request)
     {
+        $dateNow = Carbon::now()->format('Y-m-d');
         if (is_null($request->date)) {
-            $tanggal = $this->dateNow;
+            $tanggal = $dateNow;
         }else{
             $tanggal = $request->date;
         }
