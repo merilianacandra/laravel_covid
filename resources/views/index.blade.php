@@ -195,15 +195,15 @@
   $(document).ready(function () {
     var dataMap=null;
     var colorMap=[
-      "edff6b",
-      "dcec5d",
-      "ccd950",
-      "bcc743",
-      "acb436",
-      "9ba128",
-      "8b8f1b",
-      "7b7c0e",
-      "6b6a01"
+      "e5000d",
+      "e71925",
+      "ea333d",
+      "ec4c55",
+      "ef666d",
+      "f27f68",
+      "f4999e",
+      "f7b2b6",
+      "f9ccce"
     ];
     var tanggal = $('#tanggalSearch').val();
     console.log(tanggal);
