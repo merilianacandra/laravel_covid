@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Data Covid-19 Provinsi Bali</title>
+  <title>PROVINSI BALI TANGGAP COVID-19</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
@@ -21,6 +21,14 @@
   <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
   <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
 
+  <link href="https://siagacorona.semarangkota.go.id:443//cc-content/themes/cicool/corona/dark/css/lib/owl.carousel.min.css" rel="stylesheet" />
+    <link href="https://siagacorona.semarangkota.go.id:443//cc-content/themes/cicool/corona/dark/css/lib/owl.theme.default.min.css" rel="stylesheet" />
+    <!-- Bootstrap Core CSS -->
+    <link href="https://siagacorona.semarangkota.go.id:443//cc-content/themes/cicool/corona/dark/css/lib/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="https://siagacorona.semarangkota.go.id:443//cc-content/themes/cicool/corona/dark/css/helper.css" rel="stylesheet">
+    <link href="https://siagacorona.semarangkota.go.id:443//cc-content/themes/cicool/corona/dark/css/style.css" rel="stylesheet">
+  
   <style>
     html,
     body,
@@ -30,78 +38,39 @@
         padding: 0;
         margin: 0;
     }
-</style>
+  </style>
+
 </head>
+
 <body>
 
 <!-- Image and text -->
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand ml-5" href="/">
-      <img src="https://4.bp.blogspot.com/-ELlrLdH0frM/WSz4AjqIWaI/AAAAAAAAASY/EF5ayA5zXn05TXw53cRUVTJeh6lzUJDDwCLcB/s400/Lambang%2BDaerah%2BProvinsi%2BBali%2B2.png" width="30" height="30" class="d-inline-block align-top" alt="">
-      Provinsi Bali
+      <img src="https://4.bp.blogspot.com/-ELlrLdH0frM/WSz4AjqIWaI/AAAAAAAAASY/EF5ayA5zXn05TXw53cRUVTJeh6lzUJDDwCLcB/s400/Lambang%2BDaerah%2BProvinsi%2BBali%2B2.png" width="35" height="35" class="d-inline-block align-top" alt="">
+      Informasi Coronavirus (COVID-19) Provinsi Bali
     </a>
+
     <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
+      <ul class="navbar-nav ml-auto" style="margin-right: 100px;">
         <li class="nav-item active">
-          <a class="nav-link" href="/data">Data</a>
+          <a class="nav-link" href="/data">DATA</a>
         </li>
       </ul>
     </div>
+
 </nav>
 
-<div class="container mt-4">
-    <h4 >Data Sebaran Kasus Covid-19 Sampai Dengan Tanggal {{$tanggalSekarang}} di Bali (BALI)</h4>
-  <div class="row mt-4 mb-4">
-    <div class="col-sm-3">
-        <div class="card">
-            <div class="card-header">
-              Positif
-            </div>
-            <div class="card-body">
-              <h5 class="card-title">Jumlah</h5>
-              <p class="card-text">{{$positif[0]->positif}} Orang</p>
-            </div>
-          </div>
-    </div>
-    <div class="col-sm-3">
-        <div class="card">
-            <div class="card-header">
-              Dalam Perawatan
-            </div>
-            <div class="card-body">
-              <h5 class="card-title">Jumlah</h5>
-              <p class="card-text">{{$rawat[0]->rawat}} Orang</p>
-              
-            </div>
-          </div> 
-    </div>
-    <div class="col-sm-3">
-        <div class="card">
-            <div class="card-header">
-              Sembuh
-            </div>
-            <div class="card-body">
-              <h5 class="card-title">Jumlah</h5>
-              <p class="card-text">{{$sembuh[0]->sembuh}} Orang</p>
-              
-            </div>
-          </div>  
-    </div>
-    <div class="col-sm-3">
-        <div class="card">
-            <div class="card-header">
-              Meninggal
-            </div>
-            <div class="card-body">
-              <h5 class="card-title">Jumlah</h5>
-              <p class="card-text">{{$meninggal[0]->meninggal}} Orang</p>
-            </div>
-          </div>    
-    </div>
-  </div>
-  <hr>
-  <div class="row mt-4">
-      <div class="col-sm-4">
+
+<div class="container">
+  <br>
+  <br>
+  <br>
+  <h4 >Data Sebaran Kasus Covid-19 Sampai Dengan Tanggal {{$tanggalSekarang}} di Bali (BALI)</h4>
+
+<div class="div class="col-lg-12 col-md-12 col-12" style="margin-top: 30px">
+      <div class="mx-auto">
         <div class="card">
             <div class="card-body">
               <h5 class="card-title">Filter Data</h5>
@@ -112,12 +81,62 @@
                       <input type="date" class="form-control" name="tanggal" id="tanggalSearch"  @if(isset($tanggal)) value="{{$tanggal}}" @endif>
                     </div>
                     <button type="submit" class="btn btn-success btn-flat">Cari</button>
-        
                 </div>
               </form>
           </div>
       </div>
-      <div class="col-sm-8">
+
+<div class="row">
+  <div class="col-lg-3">
+    <div class="card text-center bg-danger">              
+      <center>
+          <h3>POSITIF</h3>
+          <img src="https://siagacorona.semarangkota.go.id:443//cc-content/themes/cicool/corona/dark/infected.png" width="150px"><br>
+      </center>
+      <ul class="widget-line-list m-b-15">
+          <li class=""><h2 style="line-height: unset;">{{$positif[0]->positif}}<br><span class="color-white">ORANG</span></h2></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="col-lg-3">
+    <div class="card text-center bg-warning">              
+      <center>
+          <h3>PERAWATAN</h3>
+          <img src="https://siagacorona.semarangkota.go.id:443//cc-content/themes/cicool/corona/dark/patient.png" width="150px"><br>
+      </center>
+      <ul class="widget-line-list m-b-15">
+          <li class=""><h2 style="line-height: unset;">{{$rawat[0]->rawat}}<br><span class="color-white">ORANG</span></h2></li>
+      </ul>
+    </div>
+  </div>  
+
+  <div class="col-lg-3">
+    <div class="card text-center bg-primary">              
+      <center>
+          <h3>SEMBUH</h3>
+          <img src="https://siagacorona.semarangkota.go.id:443//cc-content/themes/cicool/corona/dark/stay-at-home.png" width="150px"><br>
+      </center>
+      <ul class="widget-line-list m-b-15">
+          <li class=""><h2 style="line-height: unset;">{{$sembuh[0]->sembuh}}<br><span class="color-white">ORANG</span></h2></li>
+      </ul>
+    </div>
+  </div>  
+
+  <div class="col-lg-3">
+    <div class="card text-center" style="background-color:#5f27cd">              
+      <center>
+          <h3>MENINGGAL</h3>
+          <img src="https://siagacorona.semarangkota.go.id:443//cc-content/themes/cicool/corona/dark/treatment.png" width="150px"><br>
+      </center>
+      <ul class="widget-line-list m-b-15">
+          <li class=""><h2 style="line-height: unset;">{{$meninggal[0]->meninggal}}<br><span class="color-white">ORANG</span></h2></li>
+      </ul>
+    </div>
+  </div>  
+</div>
+
+      <div class="mx-auto">
         <div class="card">
             <div class="card-body">
               <h5 class="card-title">Peta Penyebaran Covid Provinsi Bali <strong>{{$tanggalSekarang}}</strong></h5>
@@ -138,12 +157,12 @@
                 <div class="col-12">
                   <button class="btn btn-primary form-control" id="btnGenerateColor">Generate Color</button>
                 </div>
-      
               </div>
             </div>
           </div>
       </div>
   </div>
+
   <hr>
 </div>
 <div class="container">
@@ -195,14 +214,14 @@
   $(document).ready(function () {
     var dataMap=null;
     var colorMap=[
-      "e5000d",
-      "e71925",
-      "ea333d",
-      "ec4c55",
-      "ef666d",
-      "f27f68",
-      "f4999e",
-      "f7b2b6",
+      "679b9b",
+      "aacfcf",
+      "d291bc",
+      "ffcbcb",
+      "2fc4b2",
+      "e71414",
+      "562349",
+      "303960",
       "f9ccce"
     ];
     var tanggal = $('#tanggalSearch').val();
@@ -249,7 +268,7 @@
     });
 
     var map = L.map('map');
-    map.setView(new L.LatLng(-8.374187,115.172922), 10);
+    map.setView(new L.LatLng(-8.374187,115.172922), 9);
 
     var OpenTopoMap = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
       maxZoom: 17,

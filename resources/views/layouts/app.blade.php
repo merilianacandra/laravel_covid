@@ -20,13 +20,21 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link href="https://siagacorona.semarangkota.go.id:443//cc-content/themes/cicool/corona/dark/css/lib/owl.carousel.min.css" rel="stylesheet" />
+    <link href="https://siagacorona.semarangkota.go.id:443//cc-content/themes/cicool/corona/dark/css/lib/owl.theme.default.min.css" rel="stylesheet" />
+    <!-- Bootstrap Core CSS -->
+    <link href="https://siagacorona.semarangkota.go.id:443//cc-content/themes/cicool/corona/dark/css/lib/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="https://siagacorona.semarangkota.go.id:443//cc-content/themes/cicool/corona/dark/css/helper.css" rel="stylesheet">
+    <link href="https://siagacorona.semarangkota.go.id:443//cc-content/themes/cicool/corona/dark/css/style.css" rel="stylesheet">
 </head>
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    Informasi Coronavirus (COVID-19) Provinsi Bali
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
